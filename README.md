@@ -1,2 +1,2 @@
-# info2180-lab3
-this is a tic-tac-toe web game
+# INFO2180 Lab 3
+This is Lab 3 for Carlyon Jones-Amrour
