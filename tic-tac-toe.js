@@ -1,3 +1,4 @@
+//function reloader(){
 document.addEventListener("DOMContentLoaded", function () {
   
     
@@ -12,44 +13,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
       squareVar.forEach((square, index) => {
         square.innerText = "";
+        square.classList.remove("O");
+        square.classList.remove("X");
+        status.innerText = "Move your mouse over a square and click to play an X or an O.";
+
+
+
       }
       
       )
+
+      //reloader()
     }
 
 
 
     function winCheck(listArray, index){
-      console.log("wincheck");
-      switch (index){
-        case 1:
-          if (listArray[0] == listArray[1] == listArray[2]){
+      console.log("wincheck" );
+      // switch (index){
+      //   case 1:
+          if ((listArray[0].innerText == listArray[1].innerText && listArray[1].innerText == listArray[2].innerText && listArray[2].innerText != "")){
             return true;
           }
-          break;
-        case 7:
-          if (listArray[6] == listArray[7] == listArray[8]){
+         // break;
+        //case 7:
+          if (listArray[6].innerText == listArray[7].innerText && listArray[7].innerText == listArray[8].innerText && listArray[8].innerText != ""){
             return true;
           }
-          break;
-        case 3:
-          if (listArray[0] == listArray[3] == listArray[6]){
+          //break;
+        //case 3:
+          if (listArray[0].innerText == listArray[3].innerText && listArray[3].innerText == listArray[6].innerText && listArray[6].innerText != ""){
             return true;
           }
-          break;
-        case 5:
-          if (listArray[2] == listArray[5] == listArray[8]){
+          //break;
+       // case 5:
+          if (listArray[2].innerText == listArray[5].innerText && listArray[5].innerText == listArray[8].innerText && listArray[8].innerText != ""){
             return true;
           }
-          break;
-        case 4:
-          if ((listArray[1] == listArray[4] == listArray[7]) || (listArray[3] == listArray[4] == listArray[5]) || (listArray[0] == listArray[4] == listArray[7]) || (listArray[2] == listArray[4] == listArray[6])){
-            return true;
+          //break;
+        //case 4:
+          if ((listArray[1].innerText == listArray[4].innerText && listArray[4].innerText == listArray[7].innerText && listArray[7].innerText != "") || (listArray[3].innerText == listArray[4].innerText && listArray[4].innerText == listArray[5].innerText && listArray[5].innerText != "") || (listArray[0].innerText == listArray[4].innerText && listArray[4].innerText == listArray[8].innerText && listArray[8].innerText != "") || (listArray[2].innerText == listArray[4].innerText && listArray[4].innerText == listArray[6].innerText && listArray[6].innerText != "")){
+           return true;
           }
-          break;
-        default: 
+          //break;
+        //default: 
           console.log("error in win logic or didnt win");
-      }
+      //}
 
 
       return false
@@ -147,3 +156,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   })
+
+
+//reloader()
