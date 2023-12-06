@@ -28,42 +28,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    function winCheck(listArray, index){
-      console.log("wincheck" );
-      // switch (index){
-      //   case 1:
-          if ((listArray[0].innerText == listArray[1].innerText && listArray[1].innerText == listArray[2].innerText && listArray[2].innerText != "")){
-            return true;
-          }
-         // break;
-        //case 7:
-          if (listArray[6].innerText == listArray[7].innerText && listArray[7].innerText == listArray[8].innerText && listArray[8].innerText != ""){
-            return true;
-          }
-          //break;
-        //case 3:
-          if (listArray[0].innerText == listArray[3].innerText && listArray[3].innerText == listArray[6].innerText && listArray[6].innerText != ""){
-            return true;
-          }
-          //break;
-       // case 5:
-          if (listArray[2].innerText == listArray[5].innerText && listArray[5].innerText == listArray[8].innerText && listArray[8].innerText != ""){
-            return true;
-          }
-          //break;
-        //case 4:
-          if ((listArray[1].innerText == listArray[4].innerText && listArray[4].innerText == listArray[7].innerText && listArray[7].innerText != "") || (listArray[3].innerText == listArray[4].innerText && listArray[4].innerText == listArray[5].innerText && listArray[5].innerText != "") || (listArray[0].innerText == listArray[4].innerText && listArray[4].innerText == listArray[8].innerText && listArray[8].innerText != "") || (listArray[2].innerText == listArray[4].innerText && listArray[4].innerText == listArray[6].innerText && listArray[6].innerText != "")){
-           return true;
-          }
-          //break;
-        //default: 
-          console.log("error in win logic or didnt win");
-      //}
-
-
-      return false
-
-      
+    function winCheck(listArray, index) {
+      console.log("wincheck");
+    
+      const winCombinations = [
+        [0, 1, 2], // Horizontal top row
+        [3, 4, 5], // Horizontal middle row
+        [6, 7, 8], // Horizontal bottom row
+        [0, 3, 6], // Vertical left column
+        [1, 4, 7], // Vertical middle column
+        [2, 5, 8], // Vertical right column
+        [0, 4, 8], // Diagonal from top-left to bottom-right
+        [2, 4, 6]  // Diagonal from top-right to bottom-left
+      ];
+    
+      for (const combination of winCombinations) {
+        const [a, b, c] = combination;
+        if (listArray[a].innerText === listArray[b].innerText && listArray[b].innerText === listArray[c].innerText && listArray[c].innerText !== "") {
+          return true;
+        }
+      }
+    
+      console.log("error in win logic or didn't win");
+      return false;
     }
 
 
